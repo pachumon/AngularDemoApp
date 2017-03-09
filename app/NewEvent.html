@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="eventsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Event Registration</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+</head>
+
+<body ng-cloak>
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav">
+                <li><a href="/NewEvent.html">Create Event</a></li>
+            </ul>
+        </div>
+    </div>
+    <div ng-controller="EditEventController">
+        <div class="container">
+            <h1>New Event</h1>
+            <hr>
+            <form name="neweventform">
+                <fieldset>
+                    <label for="eventName">Eventname: </label>
+                    <input id="eventName" required="true" type="text" ng-model="event.name" placeholder="Name of your event...">
+                    <label for="eventDate">EventDate: </label>
+                    <input id="eventDate" type="text" ng-model="event.date" placeholder="format (mm/dd/yyyy)...">
+                    <label for="eventTime">EventTime: </label>
+                    <input id="eventTime" type="text" ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.time" placeholder="Time of your event..."> 
+                    <label for="eventLocation">EventLocation: </label>
+                    <input id="eventLocation" type="text" ng-model="event.location" placeholder="Location of your event...">
+                    <br>
+                    <input id="eventCity" type="text" ng-model="event.city" class="input-small" placeholder="City..">
+                    <input id="eventProvince" type="text" ng-model="event.province" class="input-small" placeholder="Province..">
+                    <label for="eventImageUrl">Image: </label>
+                    <input id="eventImageUrl" type="url" ng-model="event.imageurl" class="input-xlarge" placeholder="url of image...">
+                </fieldset>
+            </form>
+            <img ng-src="{{event.imageurl}}" alt="">
+            <br>
+            <br>
+            <button type="submit" ng-disabled="neweventform.$invalid" ng-click="saveEvent(event,neweventform)" class="btn btn-primary">Save</button>
+            <button type="submit" ng-click="cancelEvent()" class="btn btn-primary">Cancel</button>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/underscore-1.4.4.min.js">
+    </script>
+    <script type="text/javascript" src="/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.min.js">
+    </script>
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/controllers/EventController.js"></script>
+    <script type="text/javascript" src="/js/controllers/EditEventController.js"></script>
+    <script type="text/javascript" src="/js/filters.js"></script>
+</body>
+
+</html>
