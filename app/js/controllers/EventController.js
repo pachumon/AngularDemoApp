@@ -17,21 +17,21 @@
             sessions: [{
                 name: 'directives masterclass',
                 creatorName: 'bob smith',
-                duration: '1 hr',
+                duration: 1,
                 level: 'advanced',
                 abstract: 'details about directives',
                 upVoteCount: 0
             }, {
                 name: 'scopes for fun and profit',
                 creatorName: 'john doe',
-                duration: '30 min',
+                duration: 2,
                 level: 'introductory',
                 abstract: 'details about scopes',
                 upVoteCount: 0
             }, {
                 name: 'well behaved controllers',
                 creatorName: 'jane doe',
-                duration: '2 hr',
+                duration: 4,
                 level: 'intermediate',
                 abstract: 'details about controllers',
                 upVoteCount: 0
@@ -44,5 +44,7 @@
         $scope.downVoteSession = function(session) {
             session.upVoteCount--;
         };
+
+        $scope.sortorder='+name';
     }])
 }());
