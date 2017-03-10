@@ -3,12 +3,14 @@
 
     var app = angular.module('eventsApp');
 
-    app.controller('EditEventController', ['$scope', function($scope) {
-        $scope.saveEvent = function(event,neweventform) {
-        	console.log(neweventform);
+    app.controller('EditEventController', ['$scope','eventData', function($scope,eventData) {
+        $scope.saveEvent = function(event, neweventform) {
             if (neweventform.$valid) {
-                window.alert(event.name);
-             }
+                eventData.save(event)
+                    .$promise
+                    .then(function(response) { console.log('success', response) })
+                    .catch(function(response) { console.log('failure', response) });
+            }
         };
 
         $scope.cancelEvent = function() {

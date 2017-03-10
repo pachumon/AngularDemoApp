@@ -2,9 +2,17 @@
     'use strict';
     var app = angular.module('eventsApp');
 
-    app.controller('EventController', ['$scope','eventData', function($scope,eventData) {
+    app.controller('EventController', ['$scope', 'eventData', '$log', function($scope, eventData, $log) {
 
-        $scope.event = eventData.event;
+        eventData.getEvent()
+            .$promise
+            .then(function(event) {
+                $scope.event = event;
+                console.log(event);
+            })
+            .catch(function(response) {
+                console.log(response);
+            });
 
         $scope.upVoteSession = function(session) {
             session.upVoteCount++;
@@ -13,6 +21,6 @@
             session.upVoteCount--;
         };
 
-        $scope.sortorder='+name';
+        $scope.sortorder = '+name';
     }])
 }());

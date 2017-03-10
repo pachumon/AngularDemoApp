@@ -25,9 +25,9 @@
                     <label for="eventName">Eventname: </label>
                     <input id="eventName" required="true" type="text" ng-model="event.name" placeholder="Name of your event...">
                     <label for="eventDate">EventDate: </label>
-                    <input id="eventDate" type="text" ng-model="event.date" placeholder="format (mm/dd/yyyy)...">
+                    <input id="eventDate" type="text" ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.date" placeholder="format (mm/dd/yyyy)...">
                     <label for="eventTime">EventTime: </label>
-                    <input id="eventTime" type="text" ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.time" placeholder="Time of your event..."> 
+                    <input id="eventTime" type="text"  ng-model="event.time" placeholder="Time of your event..."> 
                     <label for="eventLocation">EventLocation: </label>
                     <input id="eventLocation" type="text" ng-model="event.location" placeholder="Location of your event...">
                     <br>
@@ -51,9 +51,11 @@
     <script type="text/javascript" src="/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="/lib/angular/angular.min.js">
     </script>
+    <script src="/lib/angular/angular-resource.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
     <script type="text/javascript" src="/js/controllers/EventController.js"></script>
     <script type="text/javascript" src="/js/controllers/EditEventController.js"></script>
+    <script src="/js/services/EventData.js"></script>
     <script type="text/javascript" src="/js/filters.js"></script>
 </body>
 
