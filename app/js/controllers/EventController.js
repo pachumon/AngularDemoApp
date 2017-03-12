@@ -2,7 +2,8 @@
     'use strict';
     var app = angular.module('eventsApp');
 
-    app.controller('EventController', ['$scope', 'eventData', '$log', function($scope, eventData, $log) {
+    app.controller('EventController', ['$scope', 'eventData', '$log','$anchorScroll',
+     function($scope, eventData, $log,$anchorScroll) {
 
         eventData.getEvent()
             .$promise
@@ -19,6 +20,10 @@
         };
         $scope.downVoteSession = function(session) {
             session.upVoteCount--;
+        };
+
+        $scope.scrollToSession = function() {
+            $anchorScroll();
         };
 
         $scope.sortorder = '+name';
