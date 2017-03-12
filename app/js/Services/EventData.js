@@ -7,8 +7,8 @@
 
         var resource = $resource('/data/event/:id', { id: '@id' });
 
-        var getEvent = function() {
-            return resource.get({ id: 1 });
+        var getEvent = function(eventId) {
+            return resource.get({ id: eventId });
         };
 
         var save = function(event) {
@@ -16,9 +16,14 @@
             return resource.save(event);
         };
 
+        var getAllEvents = function() {
+            return resource.query();
+        };
+
         return {
             getEvent: getEvent,
-            save: save
+            save: save,
+            getAllEvents: getAllEvents
         };
     }])
 }());
