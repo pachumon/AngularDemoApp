@@ -22,6 +22,10 @@
                         }
                     }
                 })
+                .when('/sampleDirective', {
+                    templateUrl: 'templates/SampleDirective.html',
+                    controller: 'SampleDirectiveController'
+                })
                 .otherwise({ redirectTo: '/events' });
 
             $locationProvider.html5Mode(true);
